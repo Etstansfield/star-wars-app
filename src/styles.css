@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+app-root{
+    height:100%;
+}
+
+body{
+    height:100vh;
+    margin:0 !important;
+    background-image: url("assets/218515-1920x1080.jpg");
+    background-position: center;
+    
+}
+
+.container{
+    background-color: azure;
+    height:100%;
+    text-align: center;
+}
