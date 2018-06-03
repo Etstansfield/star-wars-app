@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter,Output } from '@angular/core';
 import { UrlService } from '../url.service';
 import { HttpService } from '../http.service';
 
@@ -12,6 +12,7 @@ export class LinkComponent implements OnInit {
     @Input() type:string;
     @Input() name:string;
     @Input() wookie:any;
+    @Output() url = new EventEmitter<string>();
 
     constructor(private httpService:HttpService, private urlService:UrlService){
     }
@@ -23,7 +24,8 @@ export class LinkComponent implements OnInit {
         @desc - get the data from the star wars api from the specified inputs
     **/
     getData(){
-        this.httpService.httpGet(this.urlService.getUrl(this.name,this.type,this.wookie));
+        this.url.emit(this.urlService.getUrl(this.name,this.type,this.wookie));
+        //this.httpService.httpGet(this.urlService.getUrl(this.name,this.type,this.wookie));
     }
 
 }

@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { UrlService } from './url.service';
 import { LinkComponent } from './link/link.component';
 import { FormsModule } from '@angular/forms';
+import { NgxTypeaheadModule } from 'ngx-typeahead';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @NgModule({
@@ -17,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    NgxTypeaheadModule,
   ],
   providers: [HttpService, UrlService],
   bootstrap: [AppComponent]

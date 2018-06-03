@@ -18,29 +18,64 @@
         <!--People-->
         <div class='col-md-4'>
             <!--<button class='btn btn-primary' (click)='httpService.httpGet(urlService.getUrl("LUKE","PEOPLE"))'>Luke Skywalker</button>-->
-            <app-link [type]="'PEOPLE'" [name]="'Luke Skywalker'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'C3-PO'" [wookie]="wookie_selected" ></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'R2-D2'" [wookie]="wookie_selected" ></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'Darth Vader'" [wookie]="wookie_selected" ></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'Leia Organa'" [wookie]="wookie_selected" ></app-link>
+            <app-link [type]="'PEOPLE'" [name]="'Luke Skywalker'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'PEOPLE'" [name]="'C3-PO'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'PEOPLE'" [name]="'R2-D2'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'PEOPLE'" [name]="'Darth Vader'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'PEOPLE'" [name]="'Leia Organa'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
         </div>
         <!--Locations-->
         <div class='col-md-4'>
             <!--<button class='btn btn-secondary'>Tatooine</button>-->
-            <app-link [type]="'PLANETS'" [name]="'Tatooine'" [wookie]="wookie_selected" ></app-link>
+            <app-link [type]="'PLANETS'" [name]="'Tatooine'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
         </div>
         <!--Films-->
         <div class='col-md-4'>
             <!--<button class='btn btn-success'>A New Hope</button>-->
             <app-link [type]="'FILMS'" [name]="'A New Hope'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'The Empire Strikes Back'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'Return of the Jedi'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'The Phantom Menace'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'Attack of the Clones'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'Revenge of the Sith'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'The Force Awakens'" [wookie]="wookie_selected"></app-link>
+            <app-link [type]="'FILMS'" [name]="'The Empire Strikes Back'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'FILMS'" [name]="'Return of the Jedi'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'FILMS'" [name]="'The Phantom Menace'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'FILMS'" [name]="'Attack of the Clones'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'FILMS'" [name]="'Revenge of the Sith'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <app-link [type]="'FILMS'" [name]="'The Force Awakens'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
         </div>
     </div>
+    <!--second row-->
+    <div class='row'>
+        <div class='col-md-4'>
+        </div>
+        <div class='col-md-4'>
+        </div>
+        <div class='col-md-4'>
+        </div>
+    </div>
+    <!--third row (search)-->
+    <div class='row'>
+        <div class='col-md-2'>
+            <button class='btn btn-success'>Previous</button>
+        </div>
+        <div class='col-md-8'>
+            <input type='text' class='form-control' placeholder='Enter a search term.' [value]="query"
+            ngxTypeahead
+            [taUrl]="url"
+            [taParams]="params"
+            [taQueryParam]='search'
+            (taSelected)="handleResultSelected($event)"/>
+        </div>
+        <div class='col-md-2'>
+            <button class='btn btn-success'>Next</button>
+        </div>
+    </div>
+    
+    <div class='row'>
+        <div class='col-md-12'>
+            <div *ngIf='result'>
+                {{result|json}}
+            </div>
+        </div>
+    </div>
+    
  
 </div>
 
