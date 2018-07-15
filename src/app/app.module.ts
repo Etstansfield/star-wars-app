@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { NgxTypeaheadModule } from 'ngx-typeahead';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { LoaderComponent } from './loader/loader.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LinkComponent
+    LinkComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

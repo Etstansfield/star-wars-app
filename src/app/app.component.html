@@ -70,9 +70,10 @@
     
     <div class='row'>
         <div class='col-md-12'>
-            <div *ngIf='result'>
+            <div *ngIf='result && !loading'>
                 {{result|json}}
             </div>
+            <app-loader *ngIf='loading'></app-loader>
         </div>
     </div>
     

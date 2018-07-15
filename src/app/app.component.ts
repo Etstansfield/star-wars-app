@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from './http.service';
 import { UrlService } from './url.service';
+import { Person } from './person';
 
 @Component({
     selector: 'app-root',
@@ -17,8 +18,9 @@ export class AppComponent {
         search: this.query
       };
     public search = '';
-    public result = {};
+    public result = null;
     public loading:boolean = false;
+    public error:boolean = false;
     
     constructor(private httpService: HttpService,private urlService:UrlService){
         //called first time before the ngOnInit()
@@ -35,14 +37,16 @@ export class AppComponent {
         this.httpService.httpGet(url).subscribe(
             data => {
                 console.log(data);
-                this.result = data;
+                this.result = <Person> data;
+                console.log(typeof this.result);
                 this.loading = false;
             },
             error => {
                 console.log(error);
                 this.loading = false;
+                this.error = true;
             }
-            );
+        );
     }
     
 }
