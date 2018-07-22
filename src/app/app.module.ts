@@ -5,11 +5,14 @@ import { HttpService } from './http.service';
 import { AppComponent } from './app.component';
 import { UrlService } from './url.service';
 import { LinkComponent } from './link/link.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxTypeaheadModule } from 'ngx-typeahead';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { LoaderComponent } from './loader/loader.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule, MatInputModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -22,7 +25,15 @@ import { LoaderComponent } from './loader/loader.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxTypeaheadModule,
+    MatAutocompleteModule,
+     MatInputModule,
+     BrowserAnimationsModule,
+  ],
+  exports : [
+    MatAutocompleteModule,
+     MatInputModule,
   ],
   providers: [HttpService, UrlService],
   bootstrap: [AppComponent]
