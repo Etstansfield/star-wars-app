@@ -52,10 +52,7 @@
     </div>
     <!--third row (search)-->
     <div class='row'>
-        <div class='col-md-2'>
-            <button class='btn btn-success'>Previous</button>
-        </div>
-        <div class='col-md-8'>
+        <div class='col-md-12'>
             <!--<input type='text' class='form-control' placeholder='Enter a search term.' [value]="query"
             ngxTypeahead
             [taUrl]="url"
@@ -64,17 +61,14 @@
             (taSelected)="handleResultSelected($event)"/>-->
             <form class="example-form">
                 <mat-form-field class="example-full-width">
-                  <input type="text" placeholder="search word" aria-label="Number" matInput [formControl]="searchTerm" [matAutocomplete]="auto">
-                  <mat-autocomplete #auto="matAutocomplete">
+                  <input type="text" placeholder="search word"  aria-label="Number" matInput [formControl]="searchTerm" [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete" (optionSelected)='setResult($event)' [displayWith]="displayResult">
                     <mat-option *ngFor="let item of searchResult" [value]="item">
-                      {{ item }}
+                      {{ item.name }}
                     </mat-option>
                   </mat-autocomplete>
                 </mat-form-field>
               </form>
-        </div>
-        <div class='col-md-2'>
-            <button class='btn btn-success'>Next</button>
         </div>
     </div>
     

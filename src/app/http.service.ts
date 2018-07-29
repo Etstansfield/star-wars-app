@@ -8,15 +8,15 @@ import { _throw } from 'rxjs/observable/throw';
 export class HttpService {
 
     constructor(private http: HttpClient) { }
-  
+
     /**
         @desc - http get with basic error handling
     **/
-    httpGet(url:string):Observable<any>{
+    httpGet(url: string): Observable<any> {
         return this.http.get(url).pipe(
-            tap(test => {return test}),
+            tap(test =>  test),     // returns test
             catchError( this.handleError)
-            //error => console.log('Error',error)           
+            // error => console.log('Error',error)
         );
     }
 
@@ -33,7 +33,8 @@ export class HttpService {
         }
         // return an observable with a user-facing error message
         return _throw(
-          'Something bad happened; please try again later.');
-      };
+          'Something bad happened; please try again later.'
+        );
+    }
 
 }
