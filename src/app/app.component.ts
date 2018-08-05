@@ -26,6 +26,8 @@ export class AppComponent {
     public urlTest = '';
     public searchResult = '';
     public searchTerm: FormControl;
+    public searchTypes = ['All', 'Films', 'People', 'Planets', 'Species', 'Starships', 'Vehicles'];
+    public selectedSearchType = 'All';
 
     constructor(private httpService: HttpService, private urlService: UrlService) {
         // called first time before the ngOnInit()
@@ -65,7 +67,7 @@ export class AppComponent {
      * @param term - the term to search for
      */
     search_word(term) {
-        return this.httpService.httpGet(this.urlService.getSearchUrl() + term).map(
+        return this.httpService.httpGet(this.urlService.getSearchUrl(this.selectedSearchType) + term).map(
             res => {
             console.log('Results: ', res.results);
             return res.results;

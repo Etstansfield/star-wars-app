@@ -11,3 +11,7 @@
 .float-right{
     position:relative;
 }
+
+mat-radio-button{
+    margin:5px;
+}

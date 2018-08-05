@@ -41,18 +41,14 @@
             <app-link [type]="'FILMS'" [name]="'The Force Awakens'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
         </div>
     </div>
-    <!--second row-->
-    <div class='row'>
-        <div class='col-md-4'>
-        </div>
-        <div class='col-md-4'>
-        </div>
-        <div class='col-md-4'>
-        </div>
-    </div>
     <!--third row (search)-->
     <div class='row'>
-        <div class='col-md-12'>
+        <div class='col-md-6'>
+            <mat-button-toggle-group [(ngModel)]='selectedSearchType' #group="matButtonToggleGroup">
+                <mat-button-toggle [value]='searchType' *ngFor='let searchType of searchTypes'>{{searchType}}</mat-button-toggle > 
+            </mat-button-toggle-group>
+        </div>
+        <div class='col-md-6'>
             <!--<input type='text' class='form-control' placeholder='Enter a search term.' [value]="query"
             ngxTypeahead
             [taUrl]="url"

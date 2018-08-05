@@ -24,7 +24,7 @@ const PLANETS = {
     'TATOOINE': '/planets/1',
 };
 
-const SEARCH_URL =  'https://swapi.co/api/people/?search=';
+const SEARCH_URL =  '?search=';
 
 @Injectable()
 export class UrlService {
@@ -71,8 +71,13 @@ export class UrlService {
     /**
      * @description - get the search url
      */
-    getSearchUrl(): string {
-        return SEARCH_URL;
+    getSearchUrl(type: string): string {
+
+        if (type !== 'All') {
+            return this.getRootUrl() + '/' + type.toLowerCase() + SEARCH_URL;
+        }
+
+        return this.getRootUrl() + '/' + SEARCH_URL;
     }
 
 }

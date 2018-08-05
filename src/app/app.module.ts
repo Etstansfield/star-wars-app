@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { LoaderComponent } from './loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatAutocompleteModule, MatInputModule } from '@angular/material';
+import { MatAutocompleteModule, MatInputModule, MatRadioModule, MatButtonToggleModule } from '@angular/material';
 
 
 
@@ -28,12 +28,16 @@ import { MatAutocompleteModule, MatInputModule } from '@angular/material';
     ReactiveFormsModule,
     NgxTypeaheadModule,
     MatAutocompleteModule,
-     MatInputModule,
-     BrowserAnimationsModule,
+    MatInputModule,
+    MatRadioModule,
+    BrowserAnimationsModule,
+    MatButtonToggleModule,
   ],
   exports : [
     MatAutocompleteModule,
-     MatInputModule,
+    MatInputModule,
+    MatRadioModule,
+    MatButtonToggleModule,
   ],
   providers: [HttpService, UrlService],
   bootstrap: [AppComponent]
