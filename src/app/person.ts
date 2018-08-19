@@ -1,4 +1,4 @@
-export class Person {
+export interface Person {
     
     name: string;
     height: number; 
@@ -13,8 +13,8 @@ export class Person {
     species: string[]; 
     vehicles: string[];
     starships: string[]; 
-    created: string; 
-    edited: string; 
+    created: Date; 
+    edited: Date; 
     url: string
     
 }

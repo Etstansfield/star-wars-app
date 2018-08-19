@@ -24,10 +24,10 @@ export class AppComponent {
     public loading = false;
     public error = false;
     public urlTest = '';
-    public searchResult = '';
+    public searchResult: any;
     public searchTerm: FormControl;
-    public searchTypes = ['All', 'Films', 'People', 'Planets', 'Species', 'Starships', 'Vehicles'];
-    public selectedSearchType = 'All';
+    public searchTypes = ['Films', 'People', 'Planets', 'Species', 'Starships', 'Vehicles'];
+    public selectedSearchType = 'Flims';
 
     constructor(private httpService: HttpService, private urlService: UrlService) {
         // called first time before the ngOnInit()
@@ -36,7 +36,7 @@ export class AppComponent {
         .debounceTime(300)
         .subscribe(data => {
             this.search_word(data).subscribe(response => {
-                this.searchResult = response;
+                this.searchResult = <Person>response;
             });
         });
     }

@@ -41,13 +41,13 @@ export class UrlService {
         switch (type.toUpperCase()) {
 
             case 'PEOPLE':
-                   url = STAR_WARS_API_ROOT+PEOPLE[name.toUpperCase()];
+                   url = STAR_WARS_API_ROOT + PEOPLE[name.toUpperCase()];
                 break;
             case 'FILMS':
-                   url = STAR_WARS_API_ROOT+FILMS[name.toUpperCase()];
+                   url = STAR_WARS_API_ROOT + FILMS[name.toUpperCase()];
                 break;
             case 'PLANETS':
-                    url = STAR_WARS_API_ROOT+PLANETS[name.toUpperCase()];
+                    url = STAR_WARS_API_ROOT + PLANETS[name.toUpperCase()];
                 break;
             default:
                 // do nothing
@@ -65,7 +65,9 @@ export class UrlService {
         @desc - get the root url
     **/
     getRootUrl(): string {
+
         return STAR_WARS_API_ROOT;
+
     }
 
     /**
@@ -73,11 +75,8 @@ export class UrlService {
      */
     getSearchUrl(type: string): string {
 
-        if (type !== 'All') {
-            return this.getRootUrl() + '/' + type.toLowerCase() + SEARCH_URL;
-        }
+        return this.getRootUrl() + '/' + type.toLowerCase() + SEARCH_URL;
 
-        return this.getRootUrl() + '/' + SEARCH_URL;
     }
 
 }
