@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpService } from './http.service';
 import { UrlService } from './url.service';
 import { Person } from './person';
+import { Film } from './film';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
@@ -27,7 +28,7 @@ export class AppComponent {
     public searchResult: any;
     public searchTerm: FormControl;
     public searchTypes = ['Films', 'People', 'Planets', 'Species', 'Starships', 'Vehicles'];
-    public selectedSearchType = 'Flims';
+    public selectedSearchType = this.searchTypes[0];
 
     constructor(private httpService: HttpService, private urlService: UrlService) {
         // called first time before the ngOnInit()
@@ -36,7 +37,19 @@ export class AppComponent {
         .debounceTime(300)
         .subscribe(data => {
             this.search_word(data).subscribe(response => {
-                this.searchResult = <Person>response;
+                console.log('+++ Searching For: ', this.selectedSearchType, ' +++');
+                switch (this.selectedSearchType.trim()) {
+                    case 'Films':
+                        this.searchResult = <Film>response;
+                    break;
+                    case 'People':
+                        this.searchResult = <Person>response;
+                    break;
+                    default:
+                        console.error('+++ Unknown Search Type - Defaulting to person +++');
+                        this.searchResult = <Person>response;
+                }
+
             });
         });
     }
@@ -84,7 +97,10 @@ export class AppComponent {
      * @param result - the chosen result
      */
     displayResult(result?): string | undefined {
-        return result ? result.name : undefined;
+        if (result) {
+            return result.title ? result.title : result.name;
+        }
+        return undefined;
     }
 
     /**
