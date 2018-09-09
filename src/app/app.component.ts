@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpService } from './http.service';
 import { UrlService } from './url.service';
-import { Person } from './person';
-import { Film } from './film';
+import { Person } from './classes/person';
+import { Film } from './classes/film';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
@@ -38,18 +38,8 @@ export class AppComponent {
         .subscribe(data => {
             this.search_word(data).subscribe(response => {
                 console.log('+++ Searching For: ', this.selectedSearchType, ' +++');
-                switch (this.selectedSearchType.trim()) {
-                    case 'Films':
-                        this.searchResult = <Film>response;
-                    break;
-                    case 'People':
-                        this.searchResult = <Person>response;
-                    break;
-                    default:
-                        console.error('+++ Unknown Search Type - Defaulting to person +++');
-                        this.searchResult = <Person>response;
-                }
-
+                this.searchResult = response;
+                // console.log('+++ Typeof Result: ', this.searchResult.constructor.name , ' +++');
             });
         });
     }
@@ -110,7 +100,18 @@ export class AppComponent {
     setResult($event: MatAutocompleteSelectedEvent) {
         console.log('Set Event Called!');
         console.log($event);
-        this.result = $event.option.value;
+        // this.result = $event.option.value;
+        switch (this.selectedSearchType.trim()) {
+            case 'People':
+                this.result = new Person($event.option.value);
+                console.log('+++ Search Result: ', this.result , ' type:  ', this.result.constructor.name  , ' +++');
+
+            break;
+            case 'Films':
+                this.result = new Film($event.option.value);
+            break;
+
+        }
     }
 
 }
