@@ -35,6 +35,6 @@ export class Person {
         this.created = person.created;
         this.edited = person.edited;
         this.url = person.url;
-     }
+    }
 
 }

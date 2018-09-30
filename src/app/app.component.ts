@@ -6,6 +6,7 @@ import { Film } from './classes/film';
 import { FormControl } from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
+import { Planet } from './classes/planet';
 
 @Component({
     selector: 'app-root',
@@ -110,7 +111,9 @@ export class AppComponent {
             case 'Films':
                 this.result = new Film($event.option.value);
             break;
-
+            case 'Planets':
+                this.result = new Planet($event.option.value);
+            break;
         }
     }
 
