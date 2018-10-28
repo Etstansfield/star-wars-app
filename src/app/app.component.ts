@@ -8,6 +8,8 @@ import { MatAutocompleteSelectedEvent } from '@angular/material';
 import 'rxjs/add/operator/debounceTime';
 import { Planet } from './classes/planet';
 import { Species } from './classes/species';
+import { Starship } from './classes/starship';
+import { Vehicle } from './classes/vehicle';
 
 @Component({
     selector: 'app-root',
@@ -106,8 +108,7 @@ export class AppComponent {
         switch (this.selectedSearchType.trim()) {
             case 'People':
                 this.result = new Person($event.option.value);
-                console.log('+++ Search Result: ', this.result , ' type:  ', this.result.constructor.name  , ' +++');
-
+                // console.log('+++ Search Result: ', this.result , ' type:  ', this.result.constructor.name  , ' +++');
             break;
             case 'Films':
                 this.result = new Film($event.option.value);
@@ -116,8 +117,16 @@ export class AppComponent {
                 this.result = new Planet($event.option.value);
             break;
             case 'Species':
-            this.result = new Species($event.option.value);
+                this.result = new Species($event.option.value);
             break;
+            case 'Starships':
+                this.result = new Starship($event.option.value);
+            break;
+            case 'Vehicles':
+                this.result = new Vehicle($event.option.value);
+            break;
+            default:
+                console.error('+++ Unknown search type - cannot create class! +++');
         }
     }
 
