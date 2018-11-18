@@ -1,3 +1,5 @@
+import { Types } from './types';
+
 export class Film {
 
     characters: string[];
@@ -14,7 +16,7 @@ export class Film {
     title: string;
     url: string;
     vehicles: string[];
-    type = 'flim';
+    type = Types.film;
 
     constructor(film: Film) {
 

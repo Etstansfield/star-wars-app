@@ -1,3 +1,5 @@
+import { Types } from './types';
+
 export class Person {
 
     name: string;
@@ -16,7 +18,7 @@ export class Person {
     created: Date;
     edited: Date;
     url: string;
-    type = 'person';
+    type = Types.person;
 
     constructor(person: Person) {
         this.name = person.name;

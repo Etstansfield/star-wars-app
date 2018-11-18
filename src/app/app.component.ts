@@ -10,6 +10,7 @@ import { Planet } from './classes/planet';
 import { Species } from './classes/species';
 import { Starship } from './classes/starship';
 import { Vehicle } from './classes/vehicle';
+import { Types } from './classes/types';
 
 @Component({
     selector: 'app-root',
@@ -33,6 +34,7 @@ export class AppComponent {
     public searchTerm: FormControl;
     public searchTypes = ['Films', 'People', 'Planets', 'Species', 'Starships', 'Vehicles'];
     public selectedSearchType = this.searchTypes[0];
+    public types = Types;
 
     constructor(private httpService: HttpService, private urlService: UrlService) {
         // called first time before the ngOnInit()
@@ -40,9 +42,11 @@ export class AppComponent {
         this.searchTerm.valueChanges
         .debounceTime(300)
         .subscribe(data => {
+            this.loading = true;
             this.search_word(data).subscribe(response => {
                 console.log('+++ Searching For: ', this.selectedSearchType, ' +++');
                 this.searchResult = response;
+                this.loading = false;
                 // console.log('+++ Typeof Result: ', this.searchResult.constructor.name , ' +++');
             });
         });

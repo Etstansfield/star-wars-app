@@ -11,7 +11,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { LoaderComponent } from './loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatAutocompleteModule, MatInputModule, MatRadioModule, MatButtonToggleModule } from '@angular/material';
+import { MatAutocompleteModule, MatInputModule, MatRadioModule, MatButtonToggleModule, MatExpansionModule } from '@angular/material';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -33,12 +34,14 @@ import { MatAutocompleteModule, MatInputModule, MatRadioModule, MatButtonToggleM
     MatRadioModule,
     BrowserAnimationsModule,
     MatButtonToggleModule,
+    MatExpansionModule,
+    MatTooltipModule
   ],
   exports : [
     MatAutocompleteModule,
     MatInputModule,
     MatRadioModule,
-    MatButtonToggleModule,
+    MatButtonToggleModule
   ],
   providers: [HttpService, UrlService],
   bootstrap: [AppComponent]

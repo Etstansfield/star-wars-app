@@ -19,3 +19,12 @@ mat-radio-button{
 .container{
     overflow:auto;
 }
+
+.custom-row{
+    margin-top:15vh;
+}
+
+.mat-button-toggle-group{
+    flex-wrap:wrap;
+    justify-content: space-evenly;
+}

@@ -1,3 +1,5 @@
+import { Types } from './types';
+
 export class Vehicle {
     cargo_capacity: number;
     consumables: string;
@@ -15,7 +17,7 @@ export class Vehicle {
     pilots: string[];
     url: string;
     vehicle_class: string;
-    type = 'vehicle';
+    type = Types.vehicle;
 
     constructor(vehicle: Vehicle) {
         this.name = vehicle.name;

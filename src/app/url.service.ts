@@ -75,7 +75,9 @@ export class UrlService {
      */
     getSearchUrl(type: string): string {
 
-        return this.getRootUrl() + '/' + type.toLowerCase() + SEARCH_URL;
+       const url = this.getRootUrl() + '/' + type.toLowerCase() + SEARCH_URL;
+
+       return url;
 
     }
 

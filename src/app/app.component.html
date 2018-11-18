@@ -8,37 +8,61 @@
     <!-- Rounded switch -->
     <div class='float-right'>
         <span class='span_align'>Wookie</span>
-        <label class="switch">
+        <label class="switch" matTooltip="Wookie Language Only Available for examples">
             <input [(ngModel)]='wookie_selected' type="checkbox">
             <span class="slider round"></span>
         </label>
     </div>
     <!-- Links Row 1 -->
-    <div class='row'>
+    <div class='row custom-row'>
         <!--People-->
         <div class='col-md-4'>
             <!--<button class='btn btn-primary' (click)='httpService.httpGet(urlService.getUrl("LUKE","PEOPLE"))'>Luke Skywalker</button>-->
-            <app-link [type]="'PEOPLE'" [name]="'Luke Skywalker'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'C3-PO'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'R2-D2'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'Darth Vader'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'PEOPLE'" [name]="'Leia Organa'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        People Examples
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-link [type]="'PEOPLE'" [name]="'Luke Skywalker'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'PEOPLE'" [name]="'C3-PO'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'PEOPLE'" [name]="'R2-D2'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'PEOPLE'" [name]="'Darth Vader'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'PEOPLE'" [name]="'Leia Organa'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            </mat-expansion-panel>
+            
         </div>
         <!--Locations-->
         <div class='col-md-4'>
             <!--<button class='btn btn-secondary'>Tatooine</button>-->
-            <app-link [type]="'PLANETS'" [name]="'Tatooine'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Planets Examples
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-link [type]="'PLANETS'" [name]="'Tatooine'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            </mat-expansion-panel>
         </div>
         <!--Films-->
         <div class='col-md-4'>
             <!--<button class='btn btn-success'>A New Hope</button>-->
-            <app-link [type]="'FILMS'" [name]="'A New Hope'" [wookie]="wookie_selected"></app-link>
-            <app-link [type]="'FILMS'" [name]="'The Empire Strikes Back'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'FILMS'" [name]="'Return of the Jedi'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'FILMS'" [name]="'The Phantom Menace'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'FILMS'" [name]="'Attack of the Clones'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'FILMS'" [name]="'Revenge of the Sith'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
-            <app-link [type]="'FILMS'" [name]="'The Force Awakens'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Films Examples
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-link [type]="'FILMS'" [name]="'A New Hope'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'FILMS'" [name]="'The Empire Strikes Back'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'FILMS'" [name]="'Return of the Jedi'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'FILMS'" [name]="'The Phantom Menace'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'FILMS'" [name]="'Attack of the Clones'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'FILMS'" [name]="'Revenge of the Sith'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+                <app-link [type]="'FILMS'" [name]="'The Force Awakens'" [wookie]="wookie_selected" (url)="getData($event)"></app-link>
+            </mat-expansion-panel>
+            
         </div>
     </div>
     <!--third row (search)-->
@@ -49,12 +73,6 @@
             </mat-button-toggle-group>
         </div>
         <div class='col-md-6'>
-            <!--<input type='text' class='form-control' placeholder='Enter a search term.' [value]="query"
-            ngxTypeahead
-            [taUrl]="url"
-            [taParams]="params"
-            [taQueryParam]='search'
-            (taSelected)="handleResultSelected($event)"/>-->
             <form class="example-form">
                 <mat-form-field class="example-full-width">
                   <input type="text" placeholder="search word"  aria-label="Number" matInput [formControl]="searchTerm" [matAutocomplete]="auto">
@@ -68,9 +86,11 @@
         </div>
     </div>
     
+    <!-- Fourth Row Result -->
     <div class='row'>
         <div class='col-md-12'>
             <div *ngIf='result && !loading'>
+                <!--<span style='color:green' *ngIf='result.type === types.vehicle'>VEHICLES!</span>-->
                 {{result|json}}
             </div>
             <app-loader *ngIf='loading'></app-loader>

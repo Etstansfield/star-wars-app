@@ -1,3 +1,5 @@
+import { Types } from './types';
+
 export class Starship {
 
     MGLT: any;
@@ -18,7 +20,7 @@ export class Starship {
     pilots: string[];
     starship_class: string;
     url: string;
-    type = 'starship';
+    type = Types.starship;
 
     constructor(ship: Starship) {
         this.name = ship.name;

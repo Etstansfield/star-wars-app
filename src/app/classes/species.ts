@@ -1,3 +1,5 @@
+import { Types } from './types';
+
 export class Species {
 
     name: string;
@@ -15,7 +17,7 @@ export class Species {
     created: string;
     edited: string;
     url: string;
-    type = 'species';
+    type = Types.species;
 
     constructor(species: Species) {
         this.name = species.name;
