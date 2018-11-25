@@ -84,4 +84,32 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-} 
+}
+
+.half-container{
+  display:flex;
+  flex-direction: row;
+  flex-flow: row;
+  align-items: flex-start;
+}
+
+.half-split{
+  width:48%;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.half-split:first-child{
+  margin-right:2%;
+}
+
+@media(max-width: 767px){
+  .half-split{
+    width:100%;
+    margin: 0px;
+  }
+
+  .half-container{
+    flex-direction: column;
+  }
+}

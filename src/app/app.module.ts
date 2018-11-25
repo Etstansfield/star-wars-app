@@ -12,7 +12,8 @@ import 'rxjs/add/operator/catch';
 import { LoaderComponent } from './loader/loader.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule, MatInputModule, MatRadioModule, MatButtonToggleModule, MatExpansionModule } from '@angular/material';
-import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { PersonComponent } from './components/person/person.component';
 
 
 
@@ -21,7 +22,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   declarations: [
     AppComponent,
     LinkComponent,
-    LoaderComponent
+    LoaderComponent,
+    PersonComponent
   ],
   imports: [
     BrowserModule,

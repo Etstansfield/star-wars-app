@@ -89,9 +89,12 @@
     <!-- Fourth Row Result -->
     <div class='row'>
         <div class='col-md-12'>
-            <div *ngIf='result && !loading'>
-                <!--<span style='color:green' *ngIf='result.type === types.vehicle'>VEHICLES!</span>-->
-                {{result|json}}
+            <div *ngIf='result && !loading' [ngSwitch]='result.type' >
+                <app-person *ngSwitchCase='types.person' [person]='result'>
+
+                </app-person>
+                <!--<span style='color:green' *ngIf='result.type === types.vehicle'>VEHICLES!</span>
+                {{result|json}}-->
             </div>
             <app-loader *ngIf='loading'></app-loader>
         </div>

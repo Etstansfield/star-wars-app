@@ -61,7 +61,7 @@ export class AppComponent {
         this.httpService.httpGet(url).subscribe(
             data => {
                 console.log(data);
-                this.result = <Person> data;
+                this.result = data;
                 console.log(typeof this.result);
                 this.loading = false;
             },
