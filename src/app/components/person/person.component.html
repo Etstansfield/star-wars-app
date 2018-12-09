@@ -1,6 +1,39 @@
 <div class='half-container'>
   <div class="half-split">
-    Name: {{person.name}}
+    <ul class='detail_list'>
+      <li>Name: {{person.name}}</li>
+      <li>Date of Birth: {{person.birth_year}}</li>
+      <li>Gender: {{person.gender}}</li>
+      <li>Hair Colour: {{person.hair_color}}</li>
+      <li>Eye Colour: {{person.eye_color}}</li>
+      <li>Skin Colour: {{person.skin_color}}</li>
+      <li>Vehicles: 
+          <ul class='detail_list'>
+            <li *ngFor='let vehicle of person.vehicles'><a href='{{vehicle}}'>{{vehicle}}</a></li>
+          </ul>
+      </li>
+    </ul>
   </div>
-  <div class="half-split">Split 2</div>
+  <div class="half-split">
+      <ul class='detail_list'>
+          <li>Height: {{person.height}}</li>
+          <li>Mass: {{person.mass}}</li>
+          <li>Homeworld: <a href='{{person.homeworld}}'>{{person.homeworld}}</a></li>
+          <li>Species: 
+              <ul class='detail_list'>
+                <li *ngFor='let species of person.species'><a href='{{species}}'>{{species}}</a></li>
+              </ul>
+          </li>
+          <li>Films: 
+              <ul class='detail_list'>
+                <li *ngFor='let film of person.films'><a href='{{film}}'>{{film}}</a></li>
+              </ul>
+          </li>
+          <li>Starships: 
+              <ul class='detail_list'>
+                <li *ngFor='let starship of person.starships'><a href='{{starship}}'>{{starship}}</a></li>
+              </ul>
+          </li>
+        </ul>
+  </div>
 </div>

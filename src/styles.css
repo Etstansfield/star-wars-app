@@ -97,10 +97,19 @@ input:checked + .slider:before {
   width:48%;
   border: 1px solid #cccccc;
   border-radius: 5px;
+  padding: 25px;
 }
 
 .half-split:first-child{
   margin-right:2%;
+}
+
+.detail_list{
+  list-style: none;
+}
+
+.detail_list li{
+  margin-bottom: 10px;
 }
 
 @media(max-width: 767px){
